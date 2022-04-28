@@ -557,14 +557,16 @@ export async function getJavaArguments(
     await lunarJarFile('lunar-libs.jar'),
     await lunarJarFile('vpatcher-prod.jar'),
     await lunarJarFile('Optifine.jar'),
-  ].join(process.platform == 'win32' ? ';' : ':');
+  ];
+  
+  if (version === '1.7') classPath.push(await lunarJarFile("OptiFine_1.7.10_HD_U_E7"))
 
   args.push(
     ...(await settings.get('jvmArguments')).split(' '),
     `-Xmx${await settings.get('ram')}m`,
     `-Djava.library.path="${natives}"`,
     '-cp',
-    classPath,
+    classPath.join(process.platform == 'win32' ? ';' : ':'),
     metadata.launchTypeData.mainClass,
     '--version',
     version,
