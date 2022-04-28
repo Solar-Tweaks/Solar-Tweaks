@@ -322,7 +322,7 @@ export default {
       {
         name: 'Mumble fix',
         icon: 'mumble.png',
-        internal: 'mumble',
+        internal: 'mumbleFix',
         enabled: false,
       },
       {
