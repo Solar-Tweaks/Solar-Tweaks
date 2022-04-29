@@ -632,6 +632,7 @@ export async function launchGame(metadata, serverIp = null, debug = false) {
   });
 
   const args = await getJavaArguments(metadata, serverIp);
+  const version = await settings.get('version');
 
   logger.debug('Launching game with args', args);
 
@@ -640,11 +641,15 @@ export async function launchGame(metadata, serverIp = null, debug = false) {
     cwd: join(
       constants.DOTLUNARCLIENT,
       'offline',
-      await settings.get('version')
+      version
     ),
     detached: true,
     shell: debug,
   });
+
+  logger.info(`Launching Minecraft ${version}`);
+  proc.stdout.addListener('data', data => logger.debug(data.toString("utf8")));
+  proc.stderr.addListener('data', data => logger.error(data.toString("utf8")));
 
   async function commitLaunch() {
     updateActivity('In the launcher');
