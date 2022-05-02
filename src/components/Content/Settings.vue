@@ -127,8 +127,14 @@
                 v-model="skipChecks"
                 @change="updateSkipChecks()"
               /><span id="settings-debug-mode-text"
-                >Skip checks (game files, JRE, licenses, natives and
-                assets)</span
+                >Skip checks (game files, JRE, licenses, natives and assets)
+                <span class="settings-debug-mode-warning"
+                  ><i
+                    class="settings-debug-mode-warning fa-solid fa-triangle-exclamation"
+                  ></i
+                  >Warning: not recommended for normal users unless told by a
+                  dev!</span
+                ></span
               >
             </div>
           </div>
@@ -354,15 +360,18 @@ export default {
       },
       {
         name: 'Zulu optimized 1',
-        args: '-Xms3G -Xmx3G -Xmn1G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M',
+        args:
+          '-Xms3G -Xmx3G -Xmn1G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M',
       },
       {
         name: 'Zulu optimized 2',
-        args: '-XX:+UseG1GC -Xmx3G -Xms3G -Xmn1G -Dsun.rmi.dgc.server.gcInterval=2147483646 -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M',
+        args:
+          '-XX:+UseG1GC -Xmx3G -Xms3G -Xmn1G -Dsun.rmi.dgc.server.gcInterval=2147483646 -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M',
       },
       {
         name: 'GraalVM',
-        args: '-Xms3G -Xmx3G -Xmn1G -XX:+DisableAttachMechanism -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -XX:+EnableJVMCI -XX:+UseJVMCICompiler -XX:+EagerJVMCI -Djvmci.Compiler=graal',
+        args:
+          '-Xms3G -Xmx3G -Xmn1G -XX:+DisableAttachMechanism -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M -XX:+EnableJVMCI -XX:+UseJVMCICompiler -XX:+EagerJVMCI -Djvmci.Compiler=graal',
       },
     ],
     jrePath: '',
@@ -373,13 +382,15 @@ export default {
     availableJres: {
       Temurin: {
         32: {
-          url: 'https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jre_x86-32_windows_hotspot_17.0.1_12.zip',
+          url:
+            'https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.1%2B12/OpenJDK17U-jre_x86-32_windows_hotspot_17.0.1_12.zip',
           checksum:
             'f4bb1323cb34cdb42b92d825fe36fddd78b274f071b8971c5207a66a0e82748a',
           folder: 'jdk-17.0.1+12-jre',
         },
         64: {
-          url: 'https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.2%2B8/OpenJDK17U-jre_x64_windows_hotspot_17.0.2_8.zip',
+          url:
+            'https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.2%2B8/OpenJDK17U-jre_x64_windows_hotspot_17.0.2_8.zip',
           checksum:
             'c3204a19aede95ed02ad0f427210855a951d845ab7f806fb56b774daf2572454',
           folder: 'jdk-17.0.2+8-jre',
@@ -388,13 +399,15 @@ export default {
       },
       Zulu: {
         32: {
-          url: 'https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jre17.0.2-win_i686.zip',
+          url:
+            'https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jre17.0.2-win_i686.zip',
           checksum:
             'cb86ffb1232dfa77d6a538b4438877721180388716b7cf7403afd04dd9934ce1',
           folder: 'zulu17.32.13-ca-jre17.0.2-win_i686',
         },
         64: {
-          url: 'https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jre17.0.2-win_x64.zip',
+          url:
+            'https://cdn.azul.com/zulu/bin/zulu17.32.13-ca-jre17.0.2-win_x64.zip',
           checksum:
             'a8f31891c563890c65ac20ff52906f16891a62d7bb497e389964153205cfd588',
           folder: 'zulu17.32.13-ca-jre17.0.2-win_x64',
@@ -925,6 +938,10 @@ export default {
 #settings-debug-mode-text {
   margin-left: 10px;
   margin-top: 7px;
+}
+
+.settings-debug-mode-warning {
+  color: #d0342c;
 }
 
 #settings-jre-downloader {
