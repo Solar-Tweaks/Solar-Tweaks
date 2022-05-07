@@ -98,7 +98,7 @@ export async function checkJRE() {
       type: 'error',
       title: 'JRE not found',
       message:
-        'The JRE you selected was not found or is invalid.\n\nPlease select a valid JRE in the settings page or download one using the JRE downloader.',
+        'The JRE you selected was not found or is invalid.\n\nPlease select a valid JRE in the settings page or download one using the JRE downloader.\n\nMake sure you selected the bin folder inside of the JRE.',
       buttons: ['Select JRE', 'Cancel launch'],
     });
 
