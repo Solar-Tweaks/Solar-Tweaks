@@ -39,16 +39,16 @@ export default {
     version: remote.app.getVersion(),
     links: [
       {
-        icon: 'fa-brands fa-youtube',
-        url: constants.links.YOUTUBE,
-      },
-      {
         icon: 'fa-brands fa-github',
         url: constants.links.GITHUB,
       },
       {
         icon: 'fa-solid fa-comments',
         url: constants.links.GH_DISCUSSIONS,
+      },
+            {
+        icon: 'fa-brands fa-youtube',
+        url: constants.links.YOUTUBE,
       },
     ],
   }),

@@ -5,7 +5,7 @@ export default {
   links: {
     GH_DISCUSSIONS: 'https://github.com/orgs/Solar-Tweaks/discussions',
     GITHUB: 'https://github.com/Solar-Tweaks/',
-    YOUTUBE: 'https://www.youtube.com/channel/UCDRSsAqDsCs2GYfvy2xilWw',
+    YOUTUBE: 'https://www.youtube.com/channel/UCXRhlF3x02Sc8hgWnCMXnTQ',
     LUNARCLIENT: 'https://lunarclient.com/',
     SERVER_STATUS_ENDPOINT: 'https://mcapi.us/server/status',
     LC_METADATA_ENDPOINT: 'https://api.lunarclientprod.com/launcher/launch',

@@ -132,8 +132,7 @@
                   ><i
                     class="settings-debug-mode-warning fa-solid fa-triangle-exclamation"
                   ></i
-                  >Warning: not recommended for normal users unless told by a
-                  dev!</span
+                  > Warning: Not recommended for Normal Users unless told by a Developer!</span
                 ></span
               >
             </div>
