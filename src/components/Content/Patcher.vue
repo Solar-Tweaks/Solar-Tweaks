@@ -242,15 +242,6 @@ export default {
         enabled: false,
       },
       {
-        name: 'CPS Spoof',
-        icon: 'cps.png',
-        internal: 'cpsSpoof',
-        values: {
-          chance: 0.1,
-        },
-        enabled: false,
-      },
-      {
         name: 'Auto GG',
         icon: 'hypixel.png',
         internal: 'autoGG',
