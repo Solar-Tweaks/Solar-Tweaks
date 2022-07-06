@@ -34,7 +34,7 @@
       >
         <h2 id="select-version-title">LAUNCH OPTIONS</h2>
         <h5 id="select-version-subtitle">
-          SELECT A VERSION TO CHOOSE A NEW DEFAULT
+          <i>SELECT A VERSION TO CHOOSE A NEW DEFAULT</i>
         </h5>
         <div id="select-version-grid">
           <div
@@ -74,34 +74,34 @@ export default {
     isLaunching: false,
     availableVersions: [
       {
-        version: '1.18',
-        background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_18.bb8fd4ac31.webp',
-      },
-      {
-        version: '1.17',
-        background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_17.1632241780.webp',
-      },
-      {
-        version: '1.16',
-        background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_16.47f82f804b.webp',
-      },
-      {
-        version: '1.12',
-        background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_12.4d900e6ec3.webp',
-      },
-      {
         version: '1.8.9',
         background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_8.1a68214027.webp',
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_8.6a3c456844.webp',
       },
       {
-        version: '1.7',
+        version: '1.7.10',
         background:
-          'https://launcherimages.lunarclientcdn.com/versions/1_7.148c077787.webp',
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_7.ee61751a41.webp',
+      },
+      {
+        version: '1.18.2',
+        background:
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_18.239841c879.webp',
+      },
+      {
+        version: '1.17.1',
+        background:
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_17.2f7a9cc65e.webp',
+      },
+      {
+        version: '1.16.5',
+        background:
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_16.78253582ed.webp',
+      },
+      {
+        version: '1.12.2',
+        background:
+          'https://launcherimages.lunarclientcdn.com/versions/background/1_12.00b99b874c.webp',
       },
     ],
   }),
@@ -147,6 +147,17 @@ export default {
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+    width: 5px;
+    display: flex;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    border-radius: 90px;
+    background-color: #424140;
+}
+
 #play-container {
   width: 100%;
   height: 300px;
@@ -166,19 +177,17 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  backface-visibility: hidden;
+  font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transform: scale(1);
+  transform: scale(1)
 }
 
 #buttons:hover {
   box-shadow: 0 0 40px -5px #28af55;
-  transform: scale(1.05);
-}
-
-#buttons.disabled {
-  box-shadow: 0 0 25px -5px #8f28af;
-}
-
-#buttons.disabled:hover {
-  box-shadow: 0 0 40px -5px #8f28af;
+    -webkit-transform: scale(1.05);
+  transform: scale(1.05)
 }
 
 #play-button {
@@ -197,8 +206,17 @@ export default {
   background-color: #2cbe5dd1;
 }
 
+#buttons.disabled {
+  box-shadow: 0 0 25px -5px purple;
+}
+
+#buttons.disabled:hover {
+  box-shadow: 0 0 40px -5px purple;
+}
+
 #play-button:disabled {
-  background-color: #8f28afd9;
+  background-color: rgba(128,0,128,.85);
+  box-shadow: 0 0 40px -5px #800080;
   cursor: default;
   width: 355px;
   border-radius: 10px;
@@ -252,7 +270,7 @@ export default {
   height: 100%;
   margin-top: 110px;
   z-index: 1;
-  overflow: hidden;
+  overflow-y: scroll;
   background-color: #000000cc;
   text-align: center;
 }
@@ -261,40 +279,54 @@ export default {
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 35px;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 #select-version-subtitle {
   letter-spacing: 2px;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 5px;
 }
 
 #select-version-grid {
+  margin-left: 300px;
   display: grid;
-  grid-template-columns: repeat(3, 400px);
-  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 700px;
+  height: 500px;
   grid-column-gap: 25px;
   grid-row-gap: 25px;
-  justify-content: center;
+  overflow-y: scroll;
+  padding-right: 8px;
   margin-top: 15px;
+  text-align: center;
 }
 
 .select-version-card {
-  border-radius: 15px;
+  height: 150px;
+  border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
+  backface-visibility: hidden;
 }
 
 .select-version-card-inner-container {
   width: 100%;
   height: 100%;
   transform: scale(1.05);
-  transition: transform 0.4s ease-out;
+  -webkit-transform: scale(1.05);
+  text-shadow: 0 2px 0 rgb(0, 0, 0, 0.2);
+  transition: 0.4s ease;
+  filter: saturate(0);
+    font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .select-version-card-inner-container:hover {
-  transform: scale(1.1);
+  filter: saturate(1);
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
 }
 
 .select-version-card-title {

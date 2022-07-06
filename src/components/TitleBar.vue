@@ -143,7 +143,8 @@ export default {
 
 #title-image {
   margin-left: 25px;
-  margin-right: 10px;
+  margin-right: 15px;
+  filter: brightness(1.8);
 }
 
 #title {
@@ -173,9 +174,9 @@ export default {
   -webkit-app-region: no-drag;
   background-color: transparent;
   width: 100px;
-  height: 35px;
+  height: 40px;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 0 0 2px transparent;
   transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
   font-size: 16px;

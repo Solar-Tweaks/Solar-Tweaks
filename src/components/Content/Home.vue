@@ -17,13 +17,13 @@
         <div id="post-bottom-container">
           <div class="post-author-container">
             <p class="post-author">
-              Posted by
+              <normal style="opacity: 0.7; font-weight: 100; letter-spacing: 0.2px;">Posted by </normal>
               <img
                 :src="post.avatarUrl"
                 class="post-author-avatar"
                 alt="Author Avatar"
               />
-              <strong>{{ post.author }}</strong>
+              <bold>{{ post.author }}</bold>
             </p>
           </div>
           <button class="post-button" @click="openLink(post.url)">
@@ -135,31 +135,33 @@ export default {
   background-color: #201f1d;
   width: 400px;
   height: 260px;
-  border-radius: 8px;
+  border-radius: 5px;
   margin-left: 6px;
   margin-right: 6px;
+  transition: transform 0.4s ease;
 }
 
 .post-image-container {
   width: 400px;
   height: 170px;
   overflow: hidden;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .post-image {
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease;
 }
 
-.post-image:hover {
-  transform: scale(1.07);
+.post-container:hover .post-image {
+  transform: scale(1.1);
 }
 
 .post-description {
   font-size: small;
   font-weight: 300;
+  letter-spacing: 0.2px;
   line-height: 1.5;
   margin-left: 5px;
   margin-right: 5px;
@@ -169,7 +171,7 @@ export default {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 #post-bottom-container {
@@ -189,15 +191,16 @@ export default {
 }
 
 .post-author-avatar {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin-right: 4px;
   margin-left: 3px;
+  margin-bottom: 2px;
   vertical-align: text-bottom;
 }
 
 .post-author {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .post-button {
