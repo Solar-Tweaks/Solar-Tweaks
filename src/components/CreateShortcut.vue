@@ -11,7 +11,7 @@
           <span>Version: </span>
           <select v-model="version">
             <option value="1.7">1.7</option>
-            <option selected value="1.8">1.8</option>
+            <option selected value="1.8.9">1.8.9</option>
             <option value="1.12">1.12</option>
             <option value="1.16">1.16</option>
             <option value="1.17">1.17</option>
@@ -54,7 +54,7 @@ export default {
 
   data: () => ({
     name: 'Solar Tweaks (shortcut)',
-    version: '1.8',
+    version: '1.8.9',
     server: null,
   }),
 

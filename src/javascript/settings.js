@@ -30,6 +30,11 @@ export default async function setupSettings() {
   // User's selected launch directories
   if (!(await settings.has('launchDirectories'))) {
     await settings.set('launchDirectories', defaultSettings.launchDirectories);
+  } else {
+    const directories = await settings.get('launchDirectories');
+    const old = directories.find((d) => d.version === '1.8');
+    if (old) old.version = '1.8.9';
+    await settings.set('launchDirectories', directories);
   }
 
   // User's selected ram
@@ -75,7 +80,7 @@ export default async function setupSettings() {
   logger.info('Settings setup');
 }
 
-function getDotMinecraftDirectory() {
+export function getDotMinecraftDirectory() {
   switch (platform) {
     case 'win32':
       return join(process.env.APPDATA, '.minecraft');
@@ -102,10 +107,10 @@ export const defaultSettings = {
     { name: 'BWHub', ip: 'bwhub.net', background: 4 },
   ],
   customizations: [],
-  version: '1.8',
+  version: '1.8.9',
   launchDirectories: [
     { version: '1.7', path: getDotMinecraftDirectory() },
-    { version: '1.8', path: getDotMinecraftDirectory() },
+    { version: '1.8.9', path: getDotMinecraftDirectory() },
     { version: '1.12', path: getDotMinecraftDirectory() },
     { version: '1.16', path: getDotMinecraftDirectory() },
     { version: '1.17', path: getDotMinecraftDirectory() },

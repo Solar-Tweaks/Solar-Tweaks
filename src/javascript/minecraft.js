@@ -15,6 +15,7 @@ import { disableRPC, login as connectRPC, updateActivity } from './discord';
 import { downloadAndSaveFile } from './downloader';
 import fs from './fs';
 import Logger, { createMinecraftLogger } from './logger';
+import { getDotMinecraftDirectory } from './settings';
 
 const logger = new Logger('launcher');
 
@@ -545,9 +546,10 @@ export async function getJavaArguments(
   const lunarJarFile = async (filename) =>
     `"${join(constants.DOTLUNARCLIENT, 'offline', version, filename)}"`;
 
-  const gameDir = (await settings.get('launchDirectories')).find(
-    (directory) => directory.version === version
-  ).path;
+  const gameDir =
+    (await settings.get('launchDirectories')).find(
+      (directory) => directory.version === version
+    )?.path || getDotMinecraftDirectory();
 
   const resolution = await settings.get('resolution');
   const patcherPath = join(
@@ -599,7 +601,7 @@ export async function getJavaArguments(
     '--accessToken',
     '0',
     '--assetIndex',
-    version === '1.7' ? '1.7.10' : version,
+    version === '1.7' ? '1.7.10' : version === '1.8.9' ? '1.8' : version,
     '--userProperties',
     '{}',
     '--gameDir',
