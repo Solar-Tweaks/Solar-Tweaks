@@ -3,7 +3,7 @@
     <Card
       icon="fa-solid fa-circle-info"
       title="About Solar Tweaks"
-      subtitle="Learn a bit more about Solar Tweaks, what is it and how it works"
+      subtitle="Learn a bit more about Solar Tweaks, What is it and How it works"
       background="about"
       id="about-card"
       contentClass="vertical-card-container"

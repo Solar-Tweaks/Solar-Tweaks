@@ -121,12 +121,8 @@
         >
           <div id="settings-before-launch-container">
             <div class="settings-before-launch">
-              <input
-                type="checkbox"
-                id="settings-skip-checks-input"
-                v-model="skipChecks"
-                @change="updateSkipChecks()"
-              /><span id="settings-debug-mode-text"
+              <input type="checkbox" id="settings-skip-checks-input" v-model="skipChecks" @change="updateSkipChecks()">
+              <span id="settings-debug-mode-text"
                 >Skip checks (game files, JRE, licenses, natives and assets)
                 <span class="settings-debug-mode-warning"
                   ><i
@@ -600,7 +596,30 @@ export default {
 <style scoped>
 /* Pseudo components */
 
+#settings-skip-checks-input {
+  height: 20px;
+  width: 60px;
+  background: #171717;
+  -webkit-appearance: none;
+	background-color: #343434;
+  border-radius: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#settings-skip-checks-input:hover {
+  background: #303030;
+  color: #fff;
+}
+
+#settings-skip-checks-input:checked {
+  background: #2b71ce;
+  color: #fff;
+}
+
 .input {
+  font-weight: 400;
   height: 10px;
   background-color: #171717;
   border: none;
@@ -629,6 +648,7 @@ export default {
 }
 
 .button-text {
+  font-weight: 400;
   margin-right: 20px;
 }
 
@@ -637,7 +657,7 @@ export default {
   width: 100%;
   height: 5px;
   border-radius: 5px;
-  background: #d3d3d3;
+  background: #d3d3d350;
   opacity: 1;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
@@ -656,6 +676,7 @@ export default {
 /* Content */
 
 #settings-container {
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -663,10 +684,12 @@ export default {
 }
 
 .settings-card {
+  font-weight: 500;
   margin-top: 10px;
 }
 
 .settings-card-item {
+  font-weight: 400;
   margin: 10px;
   flex: 1 1 0px;
 }
@@ -691,7 +714,7 @@ export default {
 }
 
 .settings-directories-item-version {
-  font-weight: 200;
+  font-weight: 400;
   font-size: 15px;
   margin-right: 10px;
 }
@@ -924,7 +947,26 @@ export default {
 }
 
 #settings-debug-mode-input {
-  margin-top: 10px;
+  margin-top: 7px;
+  height: 20px;
+  width: 20px;
+  background: #171717;
+  -webkit-appearance: none;
+	background-color: #343434;
+  border-radius: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#settings-debug-mode-input:hover {
+  background: #303030;
+  color: #fff;
+}
+
+#settings-debug-mode-input:checked {
+  background: #2b71ce;
+  color: #fff;
 }
 
 #settings-debug-mode-text {

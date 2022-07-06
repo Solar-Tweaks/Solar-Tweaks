@@ -86,6 +86,7 @@ export default {
 }
 
 #footer-image {
+  opacity: 0.3;
   margin-left: 15px;
   height: 30px;
   -webkit-user-drag: none;
@@ -103,8 +104,7 @@ export default {
 }
 
 #links-container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
 #links {
@@ -116,13 +116,18 @@ export default {
   margin-right: 25px;
   color: #3b3b3b;
   font-size: 20px;
+  cursor: pointer;
+  text-shadow: 0 2px 0 #00000050;
+  transition: 0.2s ease;
 }
 
 .link:hover {
-  cursor: pointer;
+  filter:brightness(1.5)
 }
 
 #mojang-disclaimer-container {
+  font-weight: 200;
+  letter-spacing: 0.2px;
   justify-self: right;
   margin-right: 15px;
 }

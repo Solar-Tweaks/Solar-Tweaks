@@ -68,7 +68,7 @@ export default {
 .card-subtitle {
   font-weight: 100;
   font-size: 15px;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   margin-top: 2px;
 }
 
